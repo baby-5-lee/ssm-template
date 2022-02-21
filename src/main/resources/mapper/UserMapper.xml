@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.UserMapper">
+
+    <resultMap id="BaseResultMap" type="com.example.domain.User">
+            <id property="id" column="id" jdbcType="CHAR"/>
+            <result property="loginact" column="loginAct" jdbcType="VARCHAR"/>
+            <result property="name" column="name" jdbcType="VARCHAR"/>
+            <result property="loginpwd" column="loginPwd" jdbcType="VARCHAR"/>
+            <result property="email" column="email" jdbcType="VARCHAR"/>
+            <result property="expiretime" column="expireTime" jdbcType="CHAR"/>
+            <result property="lockstate" column="lockState" jdbcType="CHAR"/>
+            <result property="deptno" column="deptno" jdbcType="CHAR"/>
+            <result property="allowips" column="allowIps" jdbcType="VARCHAR"/>
+            <result property="createtime" column="createTime" jdbcType="CHAR"/>
+            <result property="createby" column="createBy" jdbcType="VARCHAR"/>
+            <result property="edittime" column="editTime" jdbcType="CHAR"/>
+            <result property="editby" column="editBy" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,loginAct,name,
+        loginPwd,email,expireTime,
+        lockState,deptno,allowIps,
+        createTime,createBy,editTime,
+        editBy
+    </sql>
+
+    <select id="getActByName" resultType="java.lang.String">
+        select loginAct from tbl_user where name=#{name}
+    </select>
+
+</mapper>
